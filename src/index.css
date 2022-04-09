@@ -5,9 +5,50 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: gray;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  color: lightgreen;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 6px black;
+
+}
+
+h2 {
+  text-decoration-line: underline;
+}
+
+.App {
+  outline-style: double;
+  outline-color: black;
+  padding-bottom: 20px;
+}
+
+.pridaniTodo {
+  outline-style: double;
+  outline-color: black;
+  padding-bottom: 20px;
+  padding-top: 1px;
+  background-color: darkgrey;
+}
+
+.hotovoButton {
+  background-color: lightgreen;
+}
+
+.hotovoButton:hover {
+  background-color: forestgreen;
+}
+
+.todoText {
+  margin-right: 10px;
+}
+
+
+

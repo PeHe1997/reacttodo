@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {useState} from "react";
+import TodoForm from "./komponenty/TodoForm"
+import Todo from "./komponenty/Todo"
+import {Card} from "react-bootstrap";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [todos, setTodos] = useState([]);
+
+    const pridatTodo = text => {
+        const novyTodo = [...todos, {text}];
+        setTodos(novyTodo);
+    };
+
+    const splnitTodo = index =>{
+        const hotovyTodo = [...todos];
+        hotovyTodo.splice(index, 1);
+        setTodos(hotovyTodo);
+    };
+
+    return (
+        <div className="App">
+            <h1>Todo app</h1>
+            <TodoForm pridatTodo={pridatTodo} />
+            <div className="todoList">
+            <h2>Todo list:</h2>
+            {todos.map((todo, index) => (
+            <Card>
+                <Card.Body>
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                        splnitTodo={splnitTodo}/>
+                </Card.Body>
+            </Card>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default App;
